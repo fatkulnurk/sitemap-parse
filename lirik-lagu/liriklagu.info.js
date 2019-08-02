@@ -1,15 +1,21 @@
 var sitemaps = require('sitemap-stream-parser');
 
 var end_point = 'https://www.liriklagu.info/sitemap_index.xml';
-var urls = [];
 var all_urls = [];
 
-var date = Date().toString();
+var date = new Date().getDate().toString();
+var name = "result-liriklaguindonesiaorg.txt";
 
 sitemaps.parseSitemaps(end_point, function(url) { all_urls.push(url); }, function(err, sitemaps) {
     var i;
     const fs = require('fs');
-    var stream = fs.createWriteStream("result-" + end_point + "-" + date + ".txt");
+
+    fs.open(name, 'w', function(err, file) {
+        if (err) throw err;
+        console.log('Saved!');
+    });
+
+    var stream = fs.createWriteStream(name);
     stream.once('open', function(fd) {
         for (i = 0; i < all_urls.length; i++) {
             stream.write(all_urls[i] + ',');
