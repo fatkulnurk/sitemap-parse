@@ -3,7 +3,7 @@ var sitemaps = require('sitemap-stream-parser');
 var end_point = 'https://liriklaguindonesia.org/sitemap_index.xml';
 var all_urls = [];
 
-var date = Date().getDate().toString();
+var date = new Date().getDate().toString();
 var name = "result-" + end_point + "-" + date + ".txt";
 
 sitemaps.parseSitemaps(end_point, function(url) { all_urls.push(url); }, function(err, sitemaps) {
