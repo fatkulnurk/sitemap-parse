@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import json
 import re
 
-req = requests.get('https://liriklaguindonesia.net/shinta-arshinta-kependem-tresno.htm')
+req = requests.get('https://liriklaguindonesia.net/salsa-kirana-lewat-angin-wengi.htm')
 soup = BeautifulSoup(req.text, "lxml")
 
 # print(soup.title.string)
