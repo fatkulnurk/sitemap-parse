@@ -2,12 +2,19 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 from slugify import slugify
-import database
+import mysql.connector
 
 urls = pd.read_csv('../lirik-lagu/result-liriklaguindonesianet.txt', delimiter = ',')
 # print(urls)
 
-mycursor = database.mysql_connection()
+mydb = mysql.connector.connect(
+    host="sgx9.cloudhost.id",
+    user="dibumico_torrent_bos",
+    passwd="indonesiazonk",
+    database="dibumico_torrent"
+)
+
+mycursor = mydb.cursor()
 
 for url in urls:
     # print(urls[url]) 
@@ -43,7 +50,7 @@ for url in urls:
             clean_slug = slugify(clean_title, max_length=150, word_boundary=True)
             
             sql = "INSERT INTO lirik_lagu (title, body, source, author, post_date, chord, slug) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-            val = (clean_title, clean_body, urls[url], clean_author, clean_date_post, false, clean_slug)
+            val = (clean_title, clean_body, urls[url], clean_author, clean_date_post, False, clean_slug)
             mycursor.execute(sql, val)
 
-            mycursor.commit()
+            mydb.commit()
