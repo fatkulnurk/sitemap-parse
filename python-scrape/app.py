@@ -26,7 +26,7 @@ for url in urls:
 
     myresult = mycursor.fetchone()
 
-    if myresult:
+    if myresult.empty:
         print('Gagal insert, data sudah ada.')
     else:     
         req = requests.get(urls[url])
