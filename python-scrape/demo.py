@@ -10,7 +10,7 @@ soup = BeautifulSoup(req.text, "lxml")
 # print(soup.h1.string)
 
 # dapat banyak, bentuk obj
-# data_result_array_raw = soup.find_all('div', attrs={'style': 'background-color:#eee; padding:10px; border-top:2px solid #000; border-bottom:2px solid #000;'});
+data_result_array_raw = soup.find_all('div', attrs={'style': 'background-color:#eee; padding:10px; border-top:2px solid #000; border-bottom:2px solid #000;'});
 
 # raw_data_result = data_result_array_raw
 
@@ -42,3 +42,7 @@ print(clean_title)
 print(clean_song__name)
 print(clean_song_title)
 print(raw_data_result)
+print('---------------------------')
+del data_result_array_raw['h2']
+del data_result_array_raw['script']
+print(data_result_array_raw)
