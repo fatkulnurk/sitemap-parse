@@ -25,8 +25,8 @@ for raw_lyric in soup.find_all('div', attrs={'style': 'background-color:#eee; pa
 
 clean_title = str(soup.title.string.replace("Lirik Lagu ", ""))
 clean_title_raw = clean_title.split(" ")
-del raw_data_result.script
-del raw_data_result.h2
+del raw_data_result['script']
+del raw_data_result['h1']
 
 if (clean_title.find("-") != -1): 
     index = clean_title.find('-')
