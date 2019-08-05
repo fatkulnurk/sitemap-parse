@@ -4,7 +4,7 @@ var end_point = 'https://www.liriklagu.info/sitemap_index.xml';
 var all_urls = [];
 
 var date = new Date().getDate().toString();
-var name = "result-liriklaguindonesiaorg.txt";
+var name = "result-liriklaguinfo.txt";
 
 sitemaps.parseSitemaps(end_point, function(url) { all_urls.push(url); }, function(err, sitemaps) {
     var i;
