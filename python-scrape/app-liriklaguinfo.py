@@ -26,8 +26,7 @@ for u in urls:
         if soup:
             data_result_raw = soup.find('h1', attrs= {'class': 'entry-title'})
             if data_result_raw:
-                clean_title = str(data_result_raw.string.replace('Lirik Lagu ', ''))
-                clean_title = clean_title.replace('Chord Gitar ', '')
+                clean_title = str(data_result_raw.string)
                 clean_title = clean_title.replace(' plus Kunci Gitar', '')
                 clean_title = clean_title.replace(' - Chord Gitar dan Lirik Lagu', '')
                 clean_title = clean_title.replace(' + CHORD GITAR', '')
@@ -37,8 +36,11 @@ for u in urls:
                 clean_title = clean_title.replace('Chord Gitar (Kord) ', '')
                 clean_title = clean_title.replace('Lirik Lagu dan Kord Gitar ', '')
                 clean_title = clean_title.replace('Lirik Lagu dan Chord Gitar (kord) ', '')
+                clean_title = clean_title.replace('Lirik Lagu ', ''))
+                clean_title = clean_title.replace('Chord Gitar ', '')
                 clean_title = clean_title.replace('Lirik ', '')
                 clean_title = clean_title.replace('(Kord) ', '')
+                clean_title = clean_title.replace('Kord (Chord) Lagu', '')
 
                 data_result_raw = soup.find('pre')
                 if data_result_raw:
