@@ -52,7 +52,7 @@ for u in urls:
                 if clean_body:
                     clean_slug = slugify(clean_title)
                     sql = "INSERT INTO lirik_lagu (title, body, source, author, post_date, chord, slug) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-                    val = (str(clean_title), str(clean_body), str(url), "", "", 'True', str(clean_slug))
+                    val = (str(clean_title), str(clean_body), str(url), "", "", True, str(clean_slug))
                     mycursor.execute(sql, val)
                     mydb.commit()
                     print(mycursor.rowcount, "record inserted.")

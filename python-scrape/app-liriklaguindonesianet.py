@@ -58,7 +58,7 @@ for u in urls:
                 clean_body = clean_body.replace(' style="background-color:#eee; padding:10px; border-top:2px solid #000; border-bottom:2px solid #000;"', "")
                 clean_slug = slugify(clean_title, max_length=150, word_boundary=True)
                 sql = "INSERT INTO lirik_lagu (title, body, source, author, post_date, chord, slug) VALUES (%s, %s, %s, %s, %s, %s, %s)"
-                val = (str(clean_title), str(clean_body), str(url), str(clean_author), str(clean_date_post), 'False', str(clean_slug))
+                val = (str(clean_title), str(clean_body), str(url), str(clean_author), str(clean_date_post), False, str(clean_slug))
                 mycursor.execute(sql, val)
                 mydb.commit()
                 print(mycursor.rowcount, "record inserted.")
