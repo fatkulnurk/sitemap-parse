@@ -38,6 +38,7 @@ for u in urls:
                 clean_title = clean_title.replace('Lirik Lagu dan Kord Gitar ', '')
                 clean_title = clean_title.replace('Lirik Lagu dan Chord Gitar (kord) ', '')
                 clean_title = clean_title.replace('Lirik ', '')
+                clean_title = clean_title.replace('(Kord) ', '')
 
                 data_result_raw = soup.find('pre')
                 if data_result_raw:
