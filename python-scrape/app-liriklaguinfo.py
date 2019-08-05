@@ -36,7 +36,7 @@ for u in urls:
                 clean_title = clean_title.replace('Chord Gitar (Kord) ', '')
                 clean_title = clean_title.replace('Lirik Lagu dan Kord Gitar ', '')
                 clean_title = clean_title.replace('Lirik Lagu dan Chord Gitar (kord) ', '')
-                clean_title = clean_title.replace('Lirik Lagu ', ''))
+                clean_title = clean_title.replace('Lirik Lagu ', '')
                 clean_title = clean_title.replace('Chord Gitar ', '')
                 clean_title = clean_title.replace('Lirik ', '')
                 clean_title = clean_title.replace('(Kord) ', '')
