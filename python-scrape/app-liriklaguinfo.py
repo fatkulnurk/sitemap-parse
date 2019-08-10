@@ -17,8 +17,8 @@ for u in urls:
     sql = "SELECT * FROM lyric WHERE source_url = '{}'"
     sql = sql.format(url)
     mycursor.execute(sql)
-    myresult = mycursor.fetchall()
-    myresult = False
+    # myresult = mycursor.fetchall()
+    # myresult = False
     
     if mycursor.rowcount > 0:
         print('Gagal insert, data sudah ada.')
@@ -52,6 +52,7 @@ for u in urls:
                     if data_result_raw:
                         clean_body = data_result_raw.prettify(formatter="html5")
                         clean_body = clean_body.replace('&Acirc;', '')
+                        clean_body = clean_body.replace('Â', '')
                         clean_body = BeautifulSoup(clean_body, "lxml").text                        
 
                 if clean_body:
