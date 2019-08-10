@@ -7,24 +7,22 @@ import mysql.connector
 urls = pd.read_csv('../lirik-lagu/result-liriklaguindonesianet.txt', delimiter = ',')
 # print(urls)
 
-mydb = mysql.connector.connect(
-    user="dibumico_torrent_bos",
-    password="indonesiazonk",
-    host="sgx9.cloudhost.id",
-    database="dibumico_torrent"
-)
+import db
 
+mydb = db.mysql_connection()
 mycursor = mydb.cursor()
 
 for u in urls:
     url = urls[u]
     url = url.name
-    sql = "SELECT * FROM lirik_lagu WHERE source = '" + url + "'"
+    # sql = "SELECT * FROM lirik_lagu WHERE source = '" + url + "'"
+    sql = "SELECT * FROM lyric WHERE source_url = '{}'"
+    sql = sql.format(url)
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
     # myresult = mycursor.fetchone()
 
-    if myresult:
+    if mycursor.rowcount > 0:
         print('Gagal insert, data sudah ada.')
     else:     
         # print(url)
@@ -57,7 +55,7 @@ for u in urls:
                 clean_body = data_result_raw.prettify()
                 clean_body = clean_body.replace(' style="background-color:#eee; padding:10px; border-top:2px solid #000; border-bottom:2px solid #000;"', "")
                 clean_slug = slugify(clean_title, max_length=150, word_boundary=True)
-                sql = "INSERT INTO lirik_lagu (title, body, source, author, post_date, chord, slug) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+                sql = "INSERT INTO lyric (title, body, source_url, source_author, source_post_date, chord, slug) VALUES (%s, %s, %s, %s, %s, %s, %s)"
                 val = (str(clean_title), str(clean_body), str(url), str(clean_author), str(clean_date_post), False, str(clean_slug))
                 mycursor.execute(sql, val)
                 mydb.commit()
