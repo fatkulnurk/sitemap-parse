@@ -17,8 +17,8 @@ for u in urls:
     sql = "SELECT * FROM lyric WHERE source_url = '{}'"
     sql = sql.format(url)
     mycursor.execute(sql)
-    # myresult = mycursor.fetchall()
-    # myresult = False
+    myresult = mycursor.fetchall()
+    myresult = False
     
     if mycursor.rowcount > 0:
         print('Gagal insert, data sudah ada.')
