@@ -13,7 +13,7 @@ mycursor = mydb.cursor()
 for u in urls:
     url = urls[u]
     url = url.name
-    sql = "SELECT * FROM lyric WHERE source = {}"
+    sql = "SELECT * FROM lyric WHERE source = '{}'"
     sql = sql.format(url)
     print(sql)
     mycursor.execute(sql)
