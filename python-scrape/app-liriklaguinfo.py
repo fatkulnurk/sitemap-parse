@@ -14,7 +14,7 @@ for u in urls:
     url = urls[u]
     url = url.name
     sql = "SELECT * FROM lyric WHERE source = {}"
-    sql.format(url)
+    sql = sql.format(url)
     print(sql)
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
