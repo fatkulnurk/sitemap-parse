@@ -13,7 +13,7 @@ mycursor = mydb.cursor()
 for u in urls:
     url = urls[u]
     url = url.name
-    sql = "SELECT * FROM lirik_lagu WHERE source = {}"
+    sql = "SELECT * FROM lyric WHERE source = {}"
     sql.format(url)
     mycursor.execute(sql)
     myresult = mycursor.fetchall()
@@ -57,7 +57,7 @@ for u in urls:
                     clean_slug = slugify(clean_title)
                     # sql = "INSERT INTO lirik_lagu (title, body, source, author, post_date, chord, slug) VALUES (%s, %s, %s, %s, %s, %s, %s)"
                     # val = (str(clean_title), str(clean_body), str(url), "", "", True, str(clean_slug))
-                    sql = "INSERT INTO lirik_lagu (title, body, source_url, source_author, source_post_date, chord, slug) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+                    sql = "INSERT INTO lyric (title, body, source_url, source_author, source_post_date, chord, slug) VALUES (%s, %s, %s, %s, %s, %s, %s)"
                     val = (str(clean_title), str(clean_body), str(url), "", "", True, str(clean_slug))
                     mycursor.execute(sql, val)
                     mydb.commit()
