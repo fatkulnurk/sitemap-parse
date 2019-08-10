@@ -5,6 +5,6 @@ def mysql_connection():
     host="sgx9.cloudhost.id",
     user="dibumico_torrent_bos",
     passwd="indonesiazonk",
-    database="dibumico_torrent"
+    database="dibumico_lyrics"
     )
     return mydb.cursor()
