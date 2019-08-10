@@ -11,6 +11,7 @@ mydb = db.mysql_connection()
 mycursor = mydb.cursor()
 
 for u in urls:
+    myresult = None
     url = urls[u]
     url = url.name
     sql = "SELECT * FROM lyric WHERE source_url = '{}'"
