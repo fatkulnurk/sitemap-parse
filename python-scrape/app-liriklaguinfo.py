@@ -19,7 +19,7 @@ for u in urls:
     myresult = mycursor.fetchall()
     myresult = False
     
-    if myresult != null:
+    if myresult != None:
         print('Gagal insert, data sudah ada.')
     else: 
         req = requests.get(url)
